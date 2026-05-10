@@ -12,4 +12,3 @@ PIISample,Patients,Diagnosis,LOCATION,0.85
 PIISample,Patients,AdmissionDate,DATE_TIME,0.85
 PIISample,Products,ProductName,PERSON,0.85
 PIISample,Products,Category,LOCATION,0.85
-dc_python,PersistentClass,Test,DATE_TIME,0.85
