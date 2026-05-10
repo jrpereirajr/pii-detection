@@ -219,6 +219,8 @@ docker compose exec iris irispython -m irisapp.pii_discovery
 
 The report will be written to `pii_report.csv` in the project root. Open it, review the findings, and compare them against the sample data to understand what the scanner catches — and what it doesn't.
 
+You can check the sample database [here](http://localhost:55038/csp/sys/exp/%25CSP.UI.Portal.SQL.Home.zen?$NAMESPACE=IRISAPP), then choosing the `PIISample` schema. Use default IRIS Community Version credentials (_system/SYS).
+
 From there, try the `--populate` flag to reset the sample data, change the sample size with `-s`, or point the scanner at a different namespace with `-n`. The `--populate` flag is particularly useful: it resets the sample tables and runs the scan in one step, making iteration fast.
 
 ---
