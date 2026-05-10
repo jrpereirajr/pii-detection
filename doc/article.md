@@ -1,4 +1,4 @@
-# Discovering PII Inside InterSystems IRIS: A Compute-to-Data Approach with Embedded Python
+# Discovering PII Inside InterSystems IRIS
 
 Data privacy regulations such as GDPR, LGPD, and HIPAA demand that organizations know exactly where Personally Identifiable Information (PII) lives inside their databases. Yet in practice, most teams rely on manual inventories, tribal knowledge, or external scanning tools that require data to leave the database engine — a process that itself creates privacy and security risks.
 
@@ -108,23 +108,23 @@ The sample data is populated by a Python function (`populate()`) that runs durin
 
 ## Results: What the Scanner Found — and What It Got Wrong
 
-Running the scanner against the sample database produces the following report:
+Running the scanner against the sample database produces something like the following report:
 
 ```csv
 schema_name,table_name,column_name,pii_type,confidence
 PIISample,CustomerFeedback,CustomerName,PERSON,0.85
-PIISample,CustomerFeedback,FeedbackText,EMAIL_ADDRESS,0.7
-PIISample,CustomerFeedback,CreatedAt,DATE_TIME,0.6
+PIISample,CustomerFeedback,FeedbackText,EMAIL_ADDRESS,1.0
+PIISample,CustomerFeedback,CreatedAt,DATE_TIME,0.85
 PIISample,Patients,FullName,PERSON,0.85
-PIISample,Patients,Email,EMAIL_ADDRESS,0.85
-PIISample,Patients,Phone,PHONE_NUMBER,0.75
-PIISample,Patients,SSN,PHONE_NUMBER,0.7
-PIISample,Patients,DateOfBirth,DATE_TIME,0.6
-PIISample,Patients,Address,LOCATION,0.6
-PIISample,Patients,Diagnosis,LOCATION,0.45
-PIISample,Patients,AdmissionDate,DATE_TIME,0.6
-PIISample,Products,ProductName,PERSON,0.4
-PIISample,Products,Category,LOCATION,0.35
+PIISample,Patients,Email,EMAIL_ADDRESS,1.0
+PIISample,Patients,Phone,PHONE_NUMBER,0.4
+PIISample,Patients,SSN,PHONE_NUMBER,0.4
+PIISample,Patients,DateOfBirth,DATE_TIME,0.85
+PIISample,Patients,Address,LOCATION,0.85
+PIISample,Patients,Diagnosis,LOCATION,0.85
+PIISample,Patients,AdmissionDate,DATE_TIME,0.85
+PIISample,Products,ProductName,PERSON,0.85
+PIISample,Products,Category,LOCATION,0.85
 ```
 
 The true positives are clear: names detected as PERSON, emails as EMAIL_ADDRESS, phone numbers as PHONE_NUMBER, addresses as LOCATION. Confidence scores help reviewers prioritize — well-structured PII like emails consistently scores 0.85, while borderline cases like false positives on the Products table score below 0.5.
@@ -224,3 +224,5 @@ From there, try the `--populate` flag to reset the sample data, change the sampl
 ---
 
 *This is an MVP — a proof of concept that demonstrates the compute-to-data approach for PII discovery inside InterSystems IRIS. The small NLP models are a starting point, not a ceiling. The architecture is built to grow.*
+
+*This article was developed with the assistance of Artificial Intelligence tools for drafting and language refinement. All technical validation and final review were performed by the author.*
