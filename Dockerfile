@@ -19,6 +19,9 @@ ENV PATH "/usr/irissys/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sb
 # ENV LIBRARY_PATH=${ISC_PACKAGE_INSTALLDIR}/bin:${LIBRARY_PATH}
 ## Start IRIS
 
+ # copy the python code to the IRIS python home
+COPY ./python /usr/irissys/mgr/python/irisapp
+
 RUN --mount=type=bind,src=.,dst=. \
 pip3 install -r requirements.txt && \
 python3 -m spacy download pt_core_news_sm && \

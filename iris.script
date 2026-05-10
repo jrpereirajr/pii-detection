@@ -8,8 +8,21 @@ set prop("AutheEnabled")=48
 do ##class(Security.Services).Modify("%Service_CallIn",.prop)
 
 zn "IRISAPP"
+
+// install the app code (for some reason zpm is failing, so this is a workaround while wip)
 //zpm "load /home/irisowner/dev/ -v":1:1
 do $System.OBJ.LoadDir("/home/irisowner/dev/src","ck",,1)
+
+// install a task for PII detection
 do ##class(dc.python.PIIScannerTask).RegisterTask()
+
+// workaround to remove a wrong iris import and set the correct one - another wip...
+set sys = ##class(%SYS.Python).Import("sys")
+do sys.path.insert(0, "/usr/irissys/lib/python")
+do sys.modules.pop("iris")
+
+// populate with sample database for PII detection tests
 do ##class(%SYS.Python).Import("irisapp.pii_discovery.sample_data").populate()
+
+
 halt
