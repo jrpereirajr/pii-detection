@@ -16,7 +16,7 @@ iris.system.Process.SetNamespace("IRISAPP")
 
 # load ipm package listed in module.xml
 #iris.cls('%ZPM.PackageManager').Shell("load /home/irisowner/dev -v")
-assert ipm('load /home/irisowner/dev -v')
+# assert ipm('load /home/irisowner/dev -v')
 
 # load demo data
 engine = create_engine('iris+emb:///')

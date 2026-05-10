@@ -134,6 +134,7 @@ ClassMethod PYExecCaptureInIRIS() [ Language = python ]
     obj = MathOperations()
     obj.divide_numbers()
 }
+
 ClassMethod PYFuncExecCaptureInIRIS() [ Language = python ]
 {
     import traceback
@@ -147,6 +148,7 @@ ClassMethod PYFuncExecCaptureInIRIS() [ Language = python ]
 
     divide_numbers()
 }
+
 /// Convert Python Exception to IRIS Exception Format and log it
 ClassMethod ConvertPyExceToIRISFormat(pyException)
 {

@@ -11,16 +11,16 @@ docker rm -f $(docker ps -qa)
 
 ## build container with no cache
 ```
-docker-compose build --no-cache --progress=plain
+docker compose build --no-cache --progress=plain
 ```
 ## start iris container
 ```
-docker-compose up -d
+docker compose up -d
 ```
 
 ## open iris terminal in docker
 ```
-docker-compose exec iris iris session iris -U IRISAPP
+docker compose exec iris iris session iris -U IRISAPP
 ```
 
 ## map iris key from Mac home directory to IRIS in container
@@ -34,13 +34,9 @@ RUN apt update && apt-get -y install git
 USER ${ISC_PACKAGE_MGRUSER}
 
 
-## install docker-compose
-```
-sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-
-sudo chmod +x /usr/local/bin/docker-compose
-
-```
+## docker compose (v2 plugin)
+Docker Compose v2 is included with Docker Desktop by default.
+Use `docker compose` (space) instead of the legacy `docker-compose` (hyphen) command.
 
 ## select zpm test registry
 ```

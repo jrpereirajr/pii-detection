@@ -1,0 +1,15 @@
+schema_name,table_name,column_name,pii_type,confidence
+PIISample,CustomerFeedback,CustomerName,PERSON,0.85
+PIISample,CustomerFeedback,FeedbackText,EMAIL_ADDRESS,1.0
+PIISample,CustomerFeedback,CreatedAt,DATE_TIME,0.85
+PIISample,Patients,FullName,PERSON,0.85
+PIISample,Patients,Email,EMAIL_ADDRESS,1.0
+PIISample,Patients,Phone,PHONE_NUMBER,0.4
+PIISample,Patients,SSN,PHONE_NUMBER,0.4
+PIISample,Patients,DateOfBirth,DATE_TIME,0.85
+PIISample,Patients,Address,LOCATION,0.85
+PIISample,Patients,Diagnosis,LOCATION,0.85
+PIISample,Patients,AdmissionDate,DATE_TIME,0.85
+PIISample,Products,ProductName,PERSON,0.85
+PIISample,Products,Category,LOCATION,0.85
+dc_python,PersistentClass,Test,DATE_TIME,0.85

@@ -5,3 +5,6 @@ sqlalchemy-iris
 flask
 requests
 traceback2
+presidio-analyzer
+spacy
+pytest

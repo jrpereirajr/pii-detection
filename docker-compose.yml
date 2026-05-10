@@ -1,4 +1,4 @@
-version: '3.6'
+# version: '3.6'
 services:
   iris:
     build:
@@ -12,3 +12,4 @@ services:
       - 55030:5000
     volumes:
       - ./:/home/irisowner/dev
+      - ./python:/usr/irissys/mgr/python/irisapp:rw
